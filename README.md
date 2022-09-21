@@ -1,46 +1,40 @@
+# 🍌 Banana Serverless Whisper Template
 
-# 🍌 Banana Serverless
+This repo gives a basic framework for serving OpenAI's Whisper in production using simple HTTP servers.
 
-This repo gives a framework to serve ML models in production using simple HTTP servers.
+If you want to generalize this to deploy anything on Banana, [see the guide here](https://www.notion.so/banana-dev/How-To-Serve-Anything-On-Banana-125a65fc4d30496ba1408de1d64d052a).
 
-To generalize this to deploy anything on Banana, [see the guide here](https://www.notion.so/banana-dev/How-To-Serve-Anything-On-Banana-125a65fc4d30496ba1408de1d64d052a).
+Look at `test.py` for instructions on how to call this model on locally as well as deployed on banana.
 
-# 1. Download
-Choose 1 of 3 options
-- [Fork this repo](https://github.com/bananaml/serverless-template/fork) to create a public install
-- [Use this Template](https://github.com/bananaml/serverless-template/generate) to creates a private or public install
-- Create your own repo and copy the template files from here this repo into yours
 
-Then clone the repo to a machine with a GPU to install + test it locally 
+## Move to prod:
 
-# 2. Install
-The repo default runs a [HuggingFace BERT](https://huggingface.co/docs/transformers/model_doc/bert) model.
+At this point, you have a functioning http server for your ML model. You can use it as is, or package it up with our provided `Dockerfile` and deploy it to your favorite container hosting provider!
 
-1. Run `pip3 install -r requirements.txt` to download dependencies.
-2. Run `python3 server.py` to start the server.
-3. Run `python3 test.py` in a different terminal session to test an inference against it.
+If Banana is your favorite GPU hosting provider, read on!
 
-# 3. Make it your own
+# 🍌
 
-1. Edit `app.py` to load and run your model.
-2. Make sure to test with `test.py`!
-3. When ready to deploy:
-  - edit `download.py` (or the `Dockerfile` itself) with scripts download your custom model weights at build time
-  - edit `requirements.txt` with your pip packages. Don't delete the "sanic" line, as it's a banana dependency.
+# Deploy to Banana Serverless:
 
-# 4. Ship to prod
+Three steps:
+1. Create your own copy of this template repo. Either:
+- Click "[Fork](https://github.com/sahil280114/serverless-template-whisper/fork)" (creates a public repo)
+- Click "[Use this Template](https://github.com/sahil280114/serverless-template-whisper/generate)" (creates a private or public repo)
+- Create your own repo and copy the template files into it
 
-You now have a functioning http server that should work using Docker and complete inferences on a GPU
-To deploy on banana
-- Log in to the [Banana App](https://app.banana.dev)
-- Connect your github
-- Select this repository
+2. Login in to the [Banana Dashboard](https://app.banana.dev) and setup your account by saving your payment details and linking your Github.
 
-It'll then be built from the dockerfile, optimized, then deployed on our Serverless GPU cluster!
-You can then call it with any of our SDKs
+From then onward, any pushes to the default repo branch (usually "main" or "master") trigger Banana to build and deploy your server, using the Dockerfile.
+Throughout the build we'll sprinkle in some secret sauce to make your server extra snappy 🔥
+
+It'll then be deployed on our Serverless GPU cluster and callable with any of our serverside SDKs:
+
 - [Python](https://github.com/bananaml/banana-python-sdk)
 - [Node JS / Typescript](https://github.com/bananaml/banana-node-sdk)
 - [Go](https://github.com/bananaml/banana-go)
+
+You can monitor buildtime and runtime logs by clicking the logs button in the model view on the Banana Dashboard](https://app.banana.dev)
 
 <br>
 
