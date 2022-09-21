@@ -16,4 +16,6 @@ res = requests.post("http://localhost:8000/",json=model_payload)
 
 print(res.text)
 
+
+#use following to call deployed model on banana, model_payload is same as above
 out = banana.run("apikey","modelkey",model_payload)
