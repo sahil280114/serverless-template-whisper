@@ -4,6 +4,7 @@
 import requests
 from io import BytesIO
 import base64
+import banana_dev as banana
 
 #Needs test.mp3 file in directory
 with open(f'test.mp3','rb') as file:
@@ -14,3 +15,5 @@ model_payload = {"mp3Bytes":mp3}
 res = requests.post("http://localhost:8000/",json=model_payload)
 
 print(res.text)
+
+out = banana.run("apikey","modelkey",model_payload)
