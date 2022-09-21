@@ -1,0 +1,4 @@
+sanic
+transformers
+accelerate
+git+https://github.com/openai/whisper.git 
