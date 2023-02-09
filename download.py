@@ -8,6 +8,6 @@ import torch
 
 def download_model():
     model = whisper.load_model("base")
-
+    dobum
 if __name__ == "__main__":
     download_model()
