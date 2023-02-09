@@ -16,7 +16,7 @@ ADD server.py .
 
 # Add your model weight files 
 # (in this case we have a python script)
-ADD downloaddd.py .
+ADD download.py .
 RUN python3 download.py
 
 
