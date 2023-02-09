@@ -1,6 +1,6 @@
 # Must use a Cuda version 11+
 FROM pytorch/pytorch:1.11.0-cuda11.3-cudnn8-runtime
-BOOO
+
 WORKDIR /
 
 # Install git
@@ -16,7 +16,7 @@ ADD server.py .
 
 # Add your model weight files 
 # (in this case we have a python script)
-ADD download.py .
+ADD downloaddd.py .
 RUN python3 download.py
 
 
